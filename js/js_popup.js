@@ -30,7 +30,7 @@ function show_clock() {
 }
 
 function over(obj) {
-    obj.src = "image/logo.png";
+    obj.src = "image/OIP.jpg";
 }
 
 function out(obj) {
