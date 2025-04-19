@@ -1,13 +1,24 @@
-document.getElementById("search_btn").addEventListener('click', search_message);
-
-function search_message(){
-alert("검색을 수행합니다!");
-}
 function googleSearch() {
-    // 기본브라우저객체구조
-    const searchTerm = document.getElementById("search_input").value; // 검색어로 설정
+    const input = document.getElementById("search_input");
+    const searchTerm = input.value.trim();
+
+    if (searchTerm.length === 0) {
+        alert("검색어를 입력해주세요.");
+        return false;
+    }
+
+    const bannedWords = ["시발", "병신", "개새", "ㅅㅂ", "ㅂㅅ"];
+    for (let i = 0; i < bannedWords.length; i++) {
+        if (searchTerm.includes(bannedWords[i])) {
+            alert("부적절한 단어가 포함되어 있습니다.");
+            input.value = "";
+            return false;
+        }
+    }
+
+    alert("검색을 수행합니다!");
     const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
-     // 새 창에서 구글 검색을 수행
-    window.open(googleSearchUrl, "_blank"); // 새로운 창에서 열기.
-     return false;
-     }
+    window.open(googleSearchUrl, "_blank");
+
+    return false;
+}
