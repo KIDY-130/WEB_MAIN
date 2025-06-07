@@ -1,3 +1,5 @@
+// login.js의 맨 위에 추가
+import { session_set, session_check } from './js_session.js';
 
 
 function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
@@ -144,3 +146,10 @@ const check_input = () => {
         loginForm.submit();
     };
     document.getElementById("login_btn").addEventListener('click', check_input);
+
+
+// js_login.js
+const loginBtn = document.getElementById('login_btn');
+if (loginBtn && window.location.pathname.includes("login.html")) {
+    loginBtn.addEventListener("click", check_input);
+}

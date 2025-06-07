@@ -48,6 +48,8 @@ function encrypt_text(password){
     console.log(eb);
 }
 
+
+
 function decrypt_text(){
     const k = "key"; // 서버의 키
     const rk = k.padEnd(32, " "); // AES256은 key 길이가 32
